@@ -5,6 +5,7 @@ const db = require("../config/db");
 // ✅ Import the controller
 const {
   getProductCategoriesAndAllProducts,
+  getProductDetailsById, // Import the new function
 } = require("../controllers/productController");
 
 // Get top selling products
@@ -20,5 +21,8 @@ router.get("/top-selling", (req, res) => {
 
 // ✅ Use the imported controller here
 router.get("/products-with-categories", getProductCategoriesAndAllProducts);
+
+// ✅ New route to get product details by ID
+router.get("/:id", getProductDetailsById);
 
 module.exports = router;
